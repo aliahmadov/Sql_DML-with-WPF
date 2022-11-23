@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice_SQL_QUERY", "Practice_SQL_QUERY\Practice_SQL_QUERY.csproj", "{FD9D3FDC-5012-41A6-B346-EB3670C06A72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD9D3FDC-5012-41A6-B346-EB3670C06A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9D3FDC-5012-41A6-B346-EB3670C06A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9D3FDC-5012-41A6-B346-EB3670C06A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9D3FDC-5012-41A6-B346-EB3670C06A72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D24A333-E89E-41DA-86ED-79867D768C61}
+	EndGlobalSection
+EndGlobal

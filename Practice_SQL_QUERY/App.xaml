@@ -1,0 +1,9 @@
+﻿<Application x:Class="Practice_SQL_QUERY.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Practice_SQL_QUERY"
+             StartupUri="/Views/MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
