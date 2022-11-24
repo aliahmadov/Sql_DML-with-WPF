@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\App.xaml
-32075418255
+51154313968
 
-15-476451127
+191182117387
 14-207034072
-Views\DeleteWindow.xaml;Views\InsertWindow.xaml;Views\MainWindow.xaml;
+Views\DeleteWindow.xaml;Views\InsertWindow.xaml;Views\MainWindow.xaml;Views\ShowAllWindow.xaml;Views\UpdateWindow.xaml;
 
 False
 

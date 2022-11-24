@@ -14,7 +14,8 @@
         </Grid.ColumnDefinitions>
 
         <ListBox Name="listBox" ItemsSource="{Binding Librarians}"
-                    ScrollViewer.VerticalScrollBarVisibility="Visible"                  >
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"      
+                 SelectedItem="{Binding SelectedAuthor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -67,7 +68,8 @@
 
             <Button FontSize="20" BorderBrush="White" Background="Purple"
                     Foreground="White"
-                    FontWeight="Bold" Margin="10">
+                    FontWeight="Bold" Margin="10"
+                    Command="{Binding UpdateCommand}">
                 Update
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -82,7 +84,8 @@
         <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Margin="0,0,0,40">
             <Button FontSize="26" BorderBrush="White" Background="Orange"
                     Foreground="White"
-                    FontWeight="Bold" Margin="10">
+                    FontWeight="Bold" Margin="10"
+                    Command="{Binding ShowAllCommand}">
                 Show All
                 <Button.Resources>
                     <Style TargetType="Border">

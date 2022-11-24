@@ -19,13 +19,25 @@ namespace Practice_SQL_QUERY.ViewModels
         public ObservableCollection<Author> Librarians
         {
             get { return librarians; }
-            set { librarians = value;OnPropertyChanged(); }
+            set { librarians = value; OnPropertyChanged(); }
         }
 
 
         public Author InsertedAuthor { get; set; }
+
+        private Author Author;
+
+        public Author SelectedAuthor
+        {
+            get { return Author; }
+            set { Author = value; OnPropertyChanged(); }
+        }
+
         public RelayCommand InsertCommand { get; set; }
         public RelayCommand DeleteCommand { get; set; }
+        public RelayCommand UpdateCommand { get; set; }
+
+        public RelayCommand ShowAllCommand { get; set; }
         public AppViewModel()
         {
             Librarians = new ObservableCollection<Author>(ReadTable.GetData());
@@ -43,8 +55,8 @@ namespace Practice_SQL_QUERY.ViewModels
                 {
                     MessageBox.Show($"Author with ID {InsertedAuthor.Id} already exist", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-                else if (InsertedAuthor.FirstName==null ||
-                InsertedAuthor.LastName==null || InsertedAuthor.Id==0)
+                else if (InsertedAuthor.FirstName == null ||
+                InsertedAuthor.LastName == null || InsertedAuthor.Id == 0)
                 {
                     MessageBox.Show($"Wrong Input Format", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -76,6 +88,41 @@ namespace Practice_SQL_QUERY.ViewModels
 
                 Librarians = new ObservableCollection<Author>(ReadTable.GetData());
 
+            });
+
+            UpdateCommand = new RelayCommand(c =>
+            {
+                if (SelectedAuthor != null)
+                {
+                    var updateView = new UpdateWindow();
+                    var viewModel = new UpdateViewModel();
+                    updateView.DataContext = viewModel;
+                    viewModel.Author = SelectedAuthor;
+                    string oldName = SelectedAuthor.FirstName;
+                    string oldSurname = SelectedAuthor.LastName;
+
+                    updateView.ShowDialog();
+
+                    if (oldName != SelectedAuthor.FirstName || oldSurname != SelectedAuthor.LastName)
+                    {
+                        DMLOpeations.Update(SelectedAuthor.FirstName, SelectedAuthor.LastName, SelectedAuthor.Id);
+                        MessageBox.Show($"{SelectedAuthor.FirstName} {SelectedAuthor.LastName} has been updated successfully");
+                    }
+                    Librarians = new ObservableCollection<Author>(ReadTable.GetData());
+                }
+                else
+                {
+                    MessageBox.Show("No author selected");
+                }
+            });
+
+            ShowAllCommand = new RelayCommand(c =>
+            {
+                var showWindow = new ShowAllWindow();
+                var viewModel = new ShowAllViewModel();
+                showWindow.DataContext = viewModel;
+                viewModel.Authors = Librarians;
+                showWindow.ShowDialog();
             });
 
         }

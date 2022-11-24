@@ -18,3 +18,7 @@ C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\View
 C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\InsertWindow.baml
 C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\DeleteWindow.g.cs
 C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\DeleteWindow.baml
+C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\UpdateWindow.g.cs
+C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\UpdateWindow.baml
+C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\ShowAllWindow.g.cs
+C:\Users\eliah\source\repos\Practice_SQL_QUERY\Practice_SQL_QUERY\obj\Debug\Views\ShowAllWindow.baml

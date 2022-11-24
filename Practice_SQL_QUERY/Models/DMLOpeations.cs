@@ -14,7 +14,7 @@ namespace Practice_SQL_QUERY.Models
 
         public static void Delete(int id)
         {
-            using (var connection=new SqlConnection())
+            using (var connection = new SqlConnection())
             {
                 connection.ConnectionString =
                    ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
@@ -27,18 +27,18 @@ namespace Practice_SQL_QUERY.Models
                 param_id.SqlDbType = SqlDbType.Int;
                 param_id.Value = id;
 
-                using (var command=new SqlCommand(query,connection))
+                using (var command = new SqlCommand(query, connection))
                 {
                     command.Parameters.Add(param_id);
 
-                    var result=command.ExecuteNonQuery();
+                    var result = command.ExecuteNonQuery();
                 }
             }
         }
 
-        public static void Insert(int id,string firstName,string lastName)
+        public static void Insert(int id, string firstName, string lastName)
         {
-            using (var connection=new SqlConnection())
+            using (var connection = new SqlConnection())
             {
                 connection.ConnectionString =
                     ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
@@ -59,17 +59,58 @@ namespace Practice_SQL_QUERY.Models
 
                 var lN_parameter = new SqlParameter();
                 lN_parameter.ParameterName = @"lastName";
-                lN_parameter.SqlDbType=SqlDbType.NVarChar;
+                lN_parameter.SqlDbType = SqlDbType.NVarChar;
                 lN_parameter.Value = lastName;
 
-                using (var command=new SqlCommand(query,connection))
+                using (var command = new SqlCommand(query, connection))
                 {
                     command.Parameters.Add(id_parameter);
                     command.Parameters.Add(fN_parameter);
                     command.Parameters.Add(lN_parameter);
 
-                    var result=command.ExecuteNonQuery();
+                    var result = command.ExecuteNonQuery();
                 }
+            }
+        }
+
+        public static void Update(string firstName, string lastName,int id)
+        {
+
+            using (var connection = new SqlConnection())
+            {
+
+                connection.ConnectionString = ConfigurationManager.ConnectionStrings["MyConnString"].ConnectionString;
+
+                connection.Open();
+
+                string query = $@"UPDATE Authors SET FirstName=@firstName,LastName=@lastName
+                                WHERE Id=@id";
+
+                SqlParameter param_id = new SqlParameter();
+                param_id.ParameterName = "@id";
+                param_id.SqlDbType = SqlDbType.Int;
+                param_id.Value = id;
+
+                SqlParameter param_fN = new SqlParameter();
+                param_fN.ParameterName = "@firstName";
+                param_fN.SqlDbType = SqlDbType.NVarChar;
+                param_fN.Value = firstName;
+
+                SqlParameter param_lN=new SqlParameter();
+                param_lN.ParameterName = "@lastName";
+                param_lN.SqlDbType = SqlDbType.NVarChar;
+                param_lN.Value = lastName;
+
+                using (var command=new SqlCommand(query,connection))
+                {
+                    command.Parameters.Add(param_id);
+                    command.Parameters.Add(param_fN);
+                    command.Parameters.Add(param_lN);
+
+                    var result = command.ExecuteNonQuery();
+                }
+
+
             }
         }
 
